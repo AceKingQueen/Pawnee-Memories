@@ -26,10 +26,10 @@ class App extends Component {
         <PawneeCard 
         id={character.id}
         key={character.id}
-        name={character.name}
         image={character.image}
         />
       ))}
+      <footer></footer>
       </Wrapper>
     );
   }
