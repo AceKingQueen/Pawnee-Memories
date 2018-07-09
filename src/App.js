@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
+import PawneeCard from "./components/PawneeCard";
 import pawnee from "./pawnee.json";
 import Wrapper from "./components/Wrapper";
 import Title from "./components/Title";
-
-
-
 import './App.css';
 
 class App extends Component {
@@ -24,12 +22,14 @@ class App extends Component {
           Click an image to earn points, but don't click any image more than once.
         </p>
       </Title>  
-        <header className="App-header">
-        </header>
-       
-        <footer className="App-footer">
-        </footer>
-     
+      {this.state.pawnee.map(character => (
+        <PawneeCard 
+        id={character.id}
+        key={character.id}
+        name={character.name}
+        image={character.image}
+        />
+      ))}
       </Wrapper>
     );
   }
