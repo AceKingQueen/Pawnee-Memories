@@ -82,7 +82,7 @@ class App extends Component {
         handleClick={this.handleClick}
         image={character.image}
         name={character.name}
-        selectCharacter={this.state.selectCharacter}
+        handleClick={this.state.handleClick}
         curScore={this.state.curScore}
         />
       ))}
