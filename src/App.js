@@ -30,13 +30,19 @@ class App extends Component {
   // componentDidMount() {
 
   // }
-
+  // Fisher-Yates shuffle algorithm
   shuffleArray = array => {
     for (let i = array.length - 1; i > 0; i--) {
         let j = Math.floor(Math.random() * (i + 1));
         [array[i], array[j]] = [array[j], array[i]];
     }
   }
+
+  // if (curScore > topScore) {
+  //   topScore = curScore
+  // } else {
+  //   topScore = topScore
+  // }
 
   handleClick = name => {
      const clickCharacter = this.state.unclickedCharacters.find(item => item.name === name);
@@ -46,7 +52,6 @@ class App extends Component {
         message: "You guessed incorrectly!",
         topScore: (this.state.curScore > this.state.topScore) ? this.state.curScore : this.state.topScore,
         curScore: 0,
-        pawnee: pawnee,
         unclickedCharacters: pawnee
        });
      } else {
@@ -54,8 +59,8 @@ class App extends Component {
 
        this.setState({
          message: "Good Work!",
+         topScore: (this.state.curScore + 1 > this.state.topScore) ? this.state.curScore + 1 : this.state.topScore,
          curScore: this.state.curScore + 1,
-         pawnee: pawnee,
          unclickedCharacters: newCharacters
        });
      }
@@ -77,12 +82,12 @@ class App extends Component {
           Click an image to earn points, but don't click any image more than once.
         </p>
       </Title>  
-      {this.state.pawnee.map(character => (
+      {this.state.pawnee.map((character, iterator) => (
         <PawneeCard 
+        key={iterator}
         handleClick={this.handleClick}
         image={character.image}
         name={character.name}
-        handleClick={this.state.handleClick}
         curScore={this.state.curScore}
         />
       ))}
