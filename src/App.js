@@ -1,20 +1,8 @@
-//add click alert for each image and display total clicks
-  //add
-//check to see if clicked score is 0 
-  //if =0, add one point to total
-  //if !== 0, game over animate 
-    //reset score to zero
-    //check high score and compare
-      //if recentScore > high score, display it
-      //else do nothing
-//put images in random order after being clicked
-
 import React, { Component } from 'react';
 import PawneeCard from "./components/PawneeCard";
 import pawnee from "./pawnee.json";
 import Wrapper from "./components/Wrapper";
 import Title from "./components/Title";
-// import NavPills from "./components/NavPills";
 import './App.css';
 
 class App extends Component {
@@ -27,9 +15,6 @@ class App extends Component {
     unclickedCharacters: pawnee
   };
 
-  // componentDidMount() {
-
-  // }
   // Fisher-Yates shuffle algorithm
   shuffleArray = array => {
     for (let i = array.length - 1; i > 0; i--) {
@@ -38,11 +23,6 @@ class App extends Component {
     }
   }
 
-  // if (curScore > topScore) {
-  //   topScore = curScore
-  // } else {
-  //   topScore = topScore
-  // }
 
   handleClick = name => {
      const clickCharacter = this.state.unclickedCharacters.find(item => item.name === name);
@@ -68,19 +48,25 @@ class App extends Component {
       this.shuffleArray(pawnee);
   };
 
-
   render() {
     return (
       <Wrapper>
-        message={this.state.message}
-        curScore={this.state.curScore}
-        topScore={this.state.topScore}
-      
+        
       <Title>Welcome to Pawnee
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Seal_of_the_City_of_Pawnee%2C_Indiana.svg/1200px-Seal_of_the_City_of_Pawnee%2C_Indiana.svg.png" />  
       <h3>Click an image to begin!</h3>
-      <p className="App-intro">
+        <p className="App-intro">
           Click an image to earn points, but don't click any image more than once.
         </p>
+        <div className="message">
+        {this.state.message}
+        </div>
+        <div className="current-score">
+        Your Current Score: {this.state.curScore}
+        </div>
+        <div>
+        Your Best Score: {this.state.topScore}
+        </div>
       </Title>  
       {this.state.pawnee.map((character, iterator) => (
         <PawneeCard 

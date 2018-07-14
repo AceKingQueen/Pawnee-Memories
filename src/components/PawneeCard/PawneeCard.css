@@ -1,11 +1,11 @@
 .card {
-    background: #fff;
-    border-radius: 2px;
-    height: 225px;
+    height: 175px;
     position: relative;
-    width: 225px;
+    width: 175px;
     box-shadow: 0 3px 6px #999, 0 3px 6px #999;
-    margin: 5%;
+    margin: 2%;
+    float: left;
+
   }
   
   .card > .img-container {
@@ -14,8 +14,8 @@
   }
 
   img {
-    height: 225px;
-    width: 225px;
+    height: 175px;
+    width: 175px;
   }
 
   .card > .clicked:hover {
@@ -25,8 +25,8 @@
   .style_prevu_kit {
     display:inline-block;
     border:0;
-    width:225px;
-    height:225px;
+    width:175px;
+    height:175px;
     position: relative;
     -webkit-transition: all 200ms ease-in;
     -webkit-transform: scale(1); 
