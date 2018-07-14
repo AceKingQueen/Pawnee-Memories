@@ -52,22 +52,24 @@ class App extends Component {
     return (
       <Wrapper>
         
-      <Title>Welcome to Pawnee
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Seal_of_the_City_of_Pawnee%2C_Indiana.svg/1200px-Seal_of_the_City_of_Pawnee%2C_Indiana.svg.png" />  
-      <h3>Click an image to begin!</h3>
+      <Title>
+      <img className="pawnee-logo" src="https://monkeyblogmonkeydo.files.wordpress.com/2011/02/parks_rec_pawnee_header.jpg" alt="pawnee city seal" />  
+     
+      </Title>  
+        <div className="game-instructions">
+        <h3>Click an image to begin!</h3>
         <p className="App-intro">
           Click an image to earn points, but don't click any image more than once.
         </p>
+        </div>
         <div className="message">
         {this.state.message}
         </div>
-        <div className="current-score">
+        <div className="score">
         Your Current Score: {this.state.curScore}
-        </div>
-        <div>
+        <br />
         Your Best Score: {this.state.topScore}
         </div>
-      </Title>  
       {this.state.pawnee.map((character, iterator) => (
         <PawneeCard 
         key={iterator}
@@ -77,8 +79,8 @@ class App extends Component {
         curScore={this.state.curScore}
         />
       ))}
-      <footer></footer>
       </Wrapper>
+
     );
   }
 }

@@ -1,5 +1,9 @@
+.game-instructions, .message {
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
 
-
-footer {
-  border: 5px red solid;
+.score {
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
 }
